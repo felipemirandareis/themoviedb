@@ -23,7 +23,7 @@ Retrofit
 
 Okhttp
 
-Glider
+Glide
 
 Koin
 
