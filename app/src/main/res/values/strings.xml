@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">the movie db</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorites">Favoritos</string>
+    <string name="title_details">Detalhes</string>
+    <string name="description">Descrição</string>
+    <string name="date">Data</string>
+    <string name="add_favorite_movie">Adicione um filme como favorito ;)</string>
+    <string name="error">Opss, algo deu errado :(</string>
+</resources>

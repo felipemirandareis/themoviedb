@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.mirandafelipe.themoviedb.R" />
+
+        <variable
+            name="movie"
+            type="com.mirandafelipe.domain.model.MoviePresentationModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12"
+        android:layout_marginBottom="@dimen/margin_12">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/width_135"
+            android:layout_height="@dimen/height_200"
+            android:foreground="?selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toTopOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{movie.image}"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/image_sample" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="@dimen/width_135"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_2"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="@{movie.title}"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            tools:text="Convenção das Bruxas" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="@dimen/width_135"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_2"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintStart_toStartOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            bind:date="@{movie.date}"
+            tools:text="26/10/2020" />
+
+        <TextView
+            android:layout_width="@dimen/width_135"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_2"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:text="@{movie.genres.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Ação, Aventura, Terror" />
+
+        <ImageView
+            android:id="@+id/favorite"
+            android:layout_width="@dimen/width_30"
+            android:layout_height="@dimen/height_30"
+            android:layout_margin="@dimen/margin_4"
+            android:background="@{movie.favorite ? @drawable/shape_circle_solid_red : @drawable/shape_circle_solid_white}"
+            android:padding="@dimen/padding_4"
+            android:src="@{movie.favorite ? @drawable/ic_favorite_border_white_18dp : @drawable/ic_favorite_border_purple_18dp}"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            tools:background="@drawable/shape_circle_solid_red"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_favorite_border_white_18dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

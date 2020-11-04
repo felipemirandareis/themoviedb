@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.mirandafelipe.themoviedb.R" />
+
+        <variable
+            name="movie"
+            type="com.mirandafelipe.domain.model.MoviePresentationModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_12"
+        android:layout_marginTop="@dimen/margin_12"
+        android:layout_marginBottom="@dimen/margin_12">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/width_130"
+            android:layout_height="@dimen/height_72"
+            android:foreground="?selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{movie.backdrop}"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/backdrop_sample" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12"
+            android:fontFamily="sans-serif"
+            android:gravity="start"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:date="@{movie.date}"
+            tools:text="26/10/2020" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginTop="@dimen/margin_4"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:maxLines="2"
+            android:text="@{movie.title}"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Convenção das Bruxas" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
