@@ -28,3 +28,8 @@ data class GenreModel(
     val id: Int,
     val name: String,
 )
+
+data class MovieGenreModel(
+    val movies: List<MovieModel>,
+    val genres: List<GenreModel>
+)
